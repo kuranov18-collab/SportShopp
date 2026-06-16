@@ -1,0 +1,205 @@
+:root {
+    --bg-dark: #1a1c1e;
+    --bg-card: #ffffff;
+    --bg-header: #2c2e33;
+    --bg-footer: #18191c;
+    --text-light: #f0f1f3;
+    --text-dark: #212529;
+    --neutral-200: #e9ecef;
+    --neutral-300: #dee2e6;
+    --neutral-400: #ced4da;
+    --neutral-500: #adb5bd;
+    --neutral-600: #6c757d;
+    --neutral-700: #495057;
+    --neutral-800: #343a40;
+    --accent: #7c8b9e;
+    --accent-hover: #6a7a8c;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    color: var(--text-light);
+}
+
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    }
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    background-color: var(--neutral-200);
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.card-text.text-muted {
+    color: var(--neutral-600) !important;
+    font-size: 0.9rem;
+}
+
+.h5.text-primary {
+    color: var(--accent) !important;
+    font-weight: 600;
+}
+
+
+.btn-outline-success {
+    color: var(--accent);
+    border-color: var(--accent);
+    border-radius: 30px;
+    padding: 0.375rem 1rem;
+    background-color: transparent;
+}
+
+    .btn-outline-success:hover {
+        background-color: var(--accent);
+        border-color: var(--accent);
+        color: white;
+    }
+
+.btn-success {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    border-radius: 30px;
+}
+
+    .btn-success:hover {
+        background-color: var(--accent-hover);
+        border-color: var(--accent-hover);
+    }
+
+.btn-outline-secondary {
+    border-radius: 30px;
+    color: var(--neutral-500);
+    border-color: var(--neutral-500);
+    background-color: transparent;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: var(--neutral-700);
+        border-color: var(--neutral-600);
+        color: white;
+    }
+
+.btn-danger {
+    background-color: #b91c1c;
+    border-color: #b91c1c;
+    border-radius: 30px;
+}
+
+    .btn-danger:hover {
+        background-color: #991b1b;
+    }
+
+
+.navbar {
+    background-color: var(--bg-header) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--neutral-700);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--text-light) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+}
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: var(--accent) !important;
+    }
+
+.navbar-dark .navbar-toggler {
+    border-color: var(--neutral-500);
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+.badge.bg-danger {
+    background-color: #b91c1c !important;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+}
+
+
+footer.bg-dark {
+    background-color: var(--bg-footer) !important;
+    color: var(--neutral-400) !important;
+    border-top: 1px solid var(--neutral-700);
+}
+
+footer .container {
+    color: var(--neutral-400);
+}
+
+
+.table {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .table thead th {
+        background-color: var(--neutral-200);
+        color: var(--neutral-800);
+        border-bottom: none;
+        font-weight: 600;
+    }
+
+    .table tfoot td {
+        background-color: var(--neutral-100);
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+
+h1, h2, h3, h4, h5 {
+    color: var(--text-light);
+}
+
+a:not(.btn) {
+    color: var(--accent);
+}
+
+    a:not(.btn):hover {
+        color: var(--accent-hover);
+    }
+
+
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 160px;
+    }
+
+    .btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}

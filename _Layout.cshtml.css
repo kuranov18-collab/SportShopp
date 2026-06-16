@@ -1,0 +1,70 @@
+﻿@model SportShop.Models.Cart
+@{
+    ViewData["Title"] = "Корзина";
+}
+
+<h1 class="mb-4">🛒 Ваша корзина</h1>
+
+@if (Model.Items.Count == 0)
+{
+    <div class="alert alert-info text-center">
+        <h3>Корзина пуста</h3>
+        <p>Перейдите в <a href="/">каталог</a>, чтобы выбрать товары.</p>
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Товар</th>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                    <th>Сумма</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td style="width: 100px">
+                            <img src="@item.ImageUrl" alt="@item.ProductName" style="max-width: 80px;" onerror="this.src='/images/placeholder.jpg'">
+                        </td>
+                        <td>@item.ProductName</td>
+                        <td>@item.Price.ToString("C")</td>
+                        <td style="width: 120px">
+                            <form asp-action="UpdateQuantity" method="post" class="d-flex">
+                                <input type="hidden" name="productId" value="@item.ProductId" />
+                                <input type="number" name="quantity" value="@item.Quantity" min="1" class="form-control form-control-sm me-2" style="width: 70px" />
+                                <button type="submit" class="btn btn-sm btn-outline-secondary">Обновить</button>
+                            </form>
+                        </td>
+                        <td>@((item.Price * item.Quantity).ToString("C"))</td>
+                        <td>
+                            <form asp-action="RemoveFromCart" method="post">
+                                <input type="hidden" name="productId" value="@item.ProductId" />
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot class="table-light fw-bold">
+                <tr>
+                    <td colspan="4" class="text-end">Итого:</td>
+                    <td colspan="2">@Model.TotalPrice.ToString("C")</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+        <a href="/" class="btn btn-outline-secondary">Продолжить покупки</a>
+        <form asp-action="ClearCart" method="post">
+            <button type="submit" class="btn btn-outline-danger">Очистить корзину</button>
+        </form>
+    </div>
+}
